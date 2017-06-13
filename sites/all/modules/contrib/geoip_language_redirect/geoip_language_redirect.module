@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function geoip_language_redirect_menu() {
+  $items['geoip-language-suggestions'] = [
+    'page callback' => 'geoip_language_redirect_suggestions',
+    'access callback' => TRUE,
+  ];
+  return $items;
+}
+
+/**
+ * Page callback: Show language suggestions based on the IP.
+ */
+function geoip_language_redirect_suggestions() {
+  $drupal = new \Drupal\geoip_language_redirect\Drupal();
+  $country = $drupal->getCountry();
+  $mapping = $drupal->getMapping();
+  $suggestions = [];
+  if (isset($mapping[$country])) {
+    $suggestions[] = $mapping[$country];
+  }
+  $suggestions[] = $drupal->defaultLanguage();
+
+  drupal_json_output($suggestions);
+  exit;
+}
+
+/**
+ * Implements hook_preprocess_html().
+ *
+ * Add splash screen and link-tags for translation.
+ */
+function geoip_language_redirect_preprocess_html(&$vars) {
+  // This is indentionally hardcoded so themes can't break it.
+  $loading_screen = drupal_json_encode(trim(theme('geoip_language_redirect_loading')));
+  $document_write = <<<HTML
+<script>
+(function() {
+  if (!window.geoip_language_redirect_overlay_written) {
+    window.geoip_language_redirect_overlay_old_error = window.onerror;
+    window.onerror = function() {
+      var el = document.getElementById('geoip-language-redirect-overlay');
+      el && el.parentNode && el.parentNode.removeChild(el);
+      window.onerror = window.geoip_language_redirect_overlay_old_error;
+    };
+    document.write($loading_screen);
+    window.geoip_language_redirect_overlay_written = true;
+  }
+})();
+</script>
+HTML;
+  $vars['page']['page_top']['geoip_language_redirect'] = [
+    '#markup' => trim($document_write),
+    '#weight' => -20,
+  ];
+
+  $drupal = new \Drupal\geoip_language_redirect\Drupal();
+  $links = $drupal->translationLinks($drupal->currentPath());
+  foreach ($links as $lang => $url) {
+    drupal_add_html_head_link([
+      'rel' => 'alternate',
+      'hreflang' => $lang,
+      'href' => $url,
+    ]);
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function geoip_language_redirect_theme() {
+  $hooks['geoip_language_redirect_loading'] = [
+    'template' => 'geoip-language-redirect-loading',
+    'variables' => [],
+  ];
+  return $hooks;
+}

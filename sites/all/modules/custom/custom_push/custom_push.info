@@ -1,0 +1,4 @@
+name = Ceat Custom Push
+description = Ceat Notification
+package = Custom
+core = 7.x

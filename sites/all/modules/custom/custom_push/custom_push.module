@@ -1,0 +1,107 @@
+<?php
+
+function custom_push_menu()
+{
+  $items = array();
+  $items['push-notification'] = array(
+    'title' => 'Ceat Push Notification',
+    'page callback' => 'custom_push_notification',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    
+  );
+  
+ return $items;
+}
+
+function custom_push_notification()
+{
+ 	$response = sendMessage();
+	$return["allresponses"] = $response;
+	$return = json_encode( $return);
+	  
+        return ("Thank You.");
+
+
+}
+
+	function sendMessage(){
+		$content = array(
+			"en" => 'Welcome to CSTL'
+			);
+		
+		$fields = array(
+			'app_id' => "da33bfd4-7c63-4510-961a-a4516790b7ef",
+			'included_segments' => array('Active Users'),
+    			'data' => array("foo" => "bar"),
+			'contents' => $content
+		);
+		
+		$fields = json_encode($fields);
+   
+		
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json, charset=utf-8', 'Authorization: Basic ZGUzMTg0ZmItMmFmZS00MmVhLWFlNTQtNTY3MDNmMzA3ODFj'));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch, CURLOPT_HEADER, FALSE);
+		curl_setopt($ch, CURLOPT_POST, TRUE);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+
+		$response = curl_exec($ch);
+		curl_close($ch);
+
+       $datetime = date('Y-m-d H:i:s');
+
+         if(strpos($response, 'errors') != false) {
+
+        	$response_arr = json_decode($response);
+
+             if(count($response_arr->errors) == 0)
+           {
+		db_insert('push_notification') 
+                  ->fields(array(
+                  'request' => $fields,
+		  'response' => $response,
+		  'date_time' => $datetime,
+		  'visibility_status' => 2,
+                 ))
+                ->execute();
+             }
+
+           else
+          {
+		db_insert('push_notification') 
+                  ->fields(array(
+                  'request' => $fields,
+		  'response' => $response,
+		  'date_time' => $datetime,
+		  'visibility_status' => 2,
+                 ))
+                ->execute();
+          }
+
+        } // end of 1st if
+
+	 else
+	{
+		db_insert('push_notification') 
+                  ->fields(array(
+                  'request' => $fields,
+		  'response' => $response,
+		  'date_time' => $datetime,
+		  'visibility_status' => 0,
+                 ))
+                ->execute();
+
+            }
+
+
+		return $response;
+
+	} // end of function
+
+
+
+?>

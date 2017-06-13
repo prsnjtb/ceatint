@@ -1,0 +1,144 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function cities_install() {
+  if (taxonomy_vocabulary_machine_name_load(CITIES_VOCABULARY_NAME)) {
+    return;
+  }
+
+  $vocabulary = array (
+    'name'         => 'City',
+    'machine_name' => CITIES_VOCABULARY_NAME,
+    'description'  => 'Customisable city list with information from GeoNames',
+    'hierarchy'    => 0,
+    'module'       => 'cities',
+  );
+
+  if (module_exists('i18n_taxonomy')) {
+    $vocabulary['i18n_mode'] = 1;
+  }
+
+  $cities = taxonomy_vocabulary_save((object) $vocabulary);
+
+  $fields = array(
+    'Latitude'  => 'latitude',
+    'Longitude' => 'longitude',
+    'Timezone'  => 'timezone',
+  );
+
+  if (!field_info_field(CITIES_PREFIX . 'country')) {
+    if (module_exists('countries') && module_exists('entityreference')) {
+      $field = array(
+        'label' => 'Country',
+        'field_name' => CITIES_PREFIX . 'country',
+        'type' => 'entityreference',
+        'max_length' => 255,
+        'locked' => FALSE,
+        'translatable' => TRUE,
+        'module' => 'cities',
+        'settings' => array(
+          'target_type' => 'country',
+          'handler' => 'base',
+          'handler_settings' => array(
+            'target_bundles' => array(),
+            'sort' => array(
+              'type' => 'none',
+            ),
+            'behaviors' => array(
+              'views-select-list' => array(
+                'status' => 0,
+              )
+            ),
+          ),
+        ),
+      );
+
+      field_create_field($field);
+
+      $instance = array(
+        'field_name' => CITIES_PREFIX . 'country',
+        'entity_type' => 'taxonomy_term',
+        'bundle' => CITIES_VOCABULARY_NAME,
+        'label' => 'Country',
+        'required' => FALSE,
+      );
+
+      field_create_instance($instance);
+    }
+    else {
+      $fields['Country'] = 'country';
+    }
+  }
+
+  foreach ($fields as $label => $field_name) {
+    if (!field_info_field(CITIES_PREFIX . $field_name)) {
+      $instance = array();
+
+      $field = array(
+        'label' => $label,
+        'field_name' => CITIES_PREFIX . $field_name,
+        'type' => 'text',
+        'max_length' => 255,
+        'locked' => FALSE,
+        'translatable' => FALSE,
+        'module' => 'cities',
+      );
+
+      field_create_field($field);
+
+      $instance += array(
+        'field_name' => CITIES_PREFIX . $field_name,
+        'entity_type' => 'taxonomy_term',
+        'label' => $label,
+        'bundle' => CITIES_VOCABULARY_NAME,
+        'required' => FALSE,
+      );
+
+      field_create_instance($instance);
+    }
+  }
+
+  // Create a more usable pathauto alias than the default
+  variable_set('pathauto_taxonomy_term_city_pattern', '[term:vocabulary]/[term:city-country:iso2]/[term:name]');
+}
+
+/**
+ * Implements hook_schema().
+ *
+ * This table is used to track cities that exist in the vocabulary, to prevent duplication.
+ *
+ */
+function cities_schema() {
+  $schema['cities'] = array(
+    'description' => 'Track cities existing in vocabulary.',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'Primary key',
+      ),
+      'gnid' => array(
+        'type' => 'int',
+        'size' => 'normal',
+        'not null' => TRUE,
+        'description' => 'GeoNames ID',
+      ),
+      'tid' => array(
+        'type' => 'int',
+        'size' => 'normal',
+        'not null' => TRUE,
+        'description' => 'TID of city in "City" vocabulary',
+      ),
+    ),
+    'primary key' => array('id'),
+    'unique keys' => array(
+      'gnid_tid' => array('gnid', 'tid')
+    ),
+  );
+
+  return $schema;
+}
+
