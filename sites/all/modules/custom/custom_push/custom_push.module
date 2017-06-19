@@ -20,7 +20,7 @@ function custom_push_notification()
 	$return["allresponses"] = $response;
 	$return = json_encode( $return);
 	  
-        return ("Thank You for subscription.");
+        return ("Thank You for subscription to cstl.");
 
 
 }
