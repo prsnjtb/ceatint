@@ -336,16 +336,9 @@
                             <figure>
                                 <span class="date-box"><span class="date">Jan 5</span><span class="year">2017</span></span>
                                 <figcaption>
-                                    <p>
-
-				<?php 
-   				 $block = module_invoke('views', 'ceat_blog', 'block');	
-				 print render($block['content']);
-				?>
-
-
-
-				</p>
+                                    <p>Lorem ipsum dolor sit amet, libero turpis non cras ligula, id commodo, aenean est
+				
+					</p>
                                 </figcaption>
                             </figure>
                         </article>
