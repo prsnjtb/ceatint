@@ -337,7 +337,11 @@
 
 <?php
 
-	 $block = module_invoke('views', 'block_view', 'ceat_blog-block');	
+	 $block = module_invoke('views', 'block_view', 'ceat_blog-block');
+
+         echo '<pre>';	
+
+        print_r($block); exit;
 
      ?>
 
