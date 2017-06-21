@@ -338,9 +338,6 @@
 <?php
 	 $block = module_invoke('views', 'block_view', 'ceat_blog-block');
 
-        echo '<pre>';
-
-       print_r($block); exit;
      ?>
                                 <span class="date-box"><span class="date">Jan 5</span><span class="year">2017</span></span>
                                 <figcaption>
