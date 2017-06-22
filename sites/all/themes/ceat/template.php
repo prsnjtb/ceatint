@@ -49,6 +49,8 @@ function ceat_preprocess_page(&$variables) {
   } //end of if
   
   
+  print_r($variables['node']);
+  
   if (isset($variables['node'])) {
   // If the node type is "blog" the template suggestion will be "page--blog.tpl.php".
   
