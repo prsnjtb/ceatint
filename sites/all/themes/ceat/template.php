@@ -52,7 +52,7 @@ function ceat_preprocess_page(&$variables) {
   if (isset($variables['node'])) {
   // If the node type is "blog" the template suggestion will be "page--blog.tpl.php".
   
-	//echo 'page__'. str_replace('_', '--', $vars['node']->type);
+	echo 'page__'. str_replace('_', '--', $variables['node']->type);
   
     $variables['theme_hook_suggestions'][] = 'page__'. str_replace('_', '--', $variables['node']->type);
   }
