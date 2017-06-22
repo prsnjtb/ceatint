@@ -1,0 +1,200 @@
+@media only screen and (orientation:landscape) {
+	body { -webkit-text-size-adjust:none; }
+}
+
+@media only screen and (orientation:portrait) {
+	body { -webkit-text-size-adjust:none; }
+}
+
+@media screen and (max-width:1279px) {
+	body { font-size: 90%}
+	.container { max-width:100%;}
+	.banner-slider .banner-text h2 {font-size: 3.175em;}
+}
+@media screen and (max-width:1169px) {
+	.container { padding-left: 23px; padding-right: 23px;}
+	.top-header {padding: 0 2.82%;}
+	.top-content > li { margin-left: 10px;}
+	.banner-slider .banner-content { top: 15%;}
+	.banner-slider .banner-text { text-align: right;}
+	.banner-slider .banner-text h2 { font-size: 2.375em;}
+	.banner-slider .banner-text h5 {font-size: 1.45em;}
+	.find-distributor .map { width: 58.36%;}
+	.find-distributor .distributors {width: 41.5%;}
+	.inner-site-header .nav > ul > li { margin-left: 19px;}
+	.inner-site-header .serach-box { width: 36%;}
+	.performance-list li {margin-left: 10.5%;}
+}
+@media screen and (max-width:1023px) {
+	body { font-size: 85%}
+	.container { padding-left: 65px; padding-right: 65px;}
+	.top-header .logo a { width: 72px;}
+	.top-header .enterprise { width:150px}
+	.top-header .logo::after {height: 22px; margin: 0 10px 0 6px;}
+	.notification, .wishlist {margin-left: 7px;}
+	.banner-slider .banner-text { width:100%}
+	.banner-slider .banner-text h2,.banner-slider .banner-text h5 { text-align:center}
+	.top-search { width:95%}
+	.devider,.stay-update::before { display:none}
+	.slider .jquery-reslider .slider-dots { bottom:62px}
+	.sec-next { bottom: 100px;}
+	.fourBox article { padding: 15px 26px 20px;}
+	.fourBox article figcaption h3 { font-size: 1.575em;}
+	.tireRangeBox article figure .content-box { width: 58.46%;}
+	.sceTitle-box .title-part h2 { font-size: 1.675em;}
+	.sceTitle-box .title-part p {font-size: 1em;}
+	.sceTitle-box .info-part p { padding-top: 20px; font-size: 0.9375em;}
+	.stay-update { min-height:1px; margin-top: 0; padding: 30px 0;}
+	.full-width .list-box .box figure figcaption h2 {font-size: 1.7em;}
+	.full-width .list-box .box figure figcaption { min-height: 66px; padding:10px}
+	.full-width .list-box .one-box.box .vd-play { width: 70px; height: 70px; background-size: 22px;}
+	.vd-play {background-size: 23px;width: 51px; height: 51px;}
+	.full-width .list-box .box .vd-play.right-top-pos {top: -63px;}
+	.tirerange-sec .botm-block h2 {font-size: 2.1em;}
+	.find-distributor .distributors .box-header h2 { font-size:1.625em}
+	.main-footer .ft-top .ft-link .social li { margin-right:3px}
+	.main-footer .ft-top .ft-link .social li a { width: 30px; height: 30px;}
+	.main-footer .ft-top .ft-link .social li.fb { background-size:30px}
+	.main-footer .ft-top .ft-link .social li.twt { background-size:30px}
+	.main-footer .ft-top .ft-link .social li.instagrm { background-size:30px;}
+	.main-footer .ft-top .ft-link .social li.fb:hover,.main-footer .ft-top .ft-link .social li.twt:hover,.main-footer .ft-top .ft-link .social li.instagrm:hover {background-position:0 -30px;}
+	.performance-list li { margin-left: 9.5%;}
+
+}
+@media screen and (max-width:959px) {
+	.container { width: 100%;}
+	.main-header { position: fixed; top: 0; width: 270px; right: -270px; top: 0; z-index: 999; background: #263646; height: 100%; -webkit-transition: all linear 0.5s; -moz-transition: all linear 0.5s; transition: all linear 0.5s; overflow:auto}
+	.nav ul ul { padding: 5px; position: relative; min-width: 100%; left: 0; top: 100%;}
+	.nav ul li a {padding:0 15px; }
+	.main-header.menu-togl { right:0}
+	.main-header .header-right { float: none; width: 100%;}
+	.nav > ul > li { float: none; margin-left: 0; border-bottom:1px solid rgba(255,255,255,0.3)}
+	.top-header .top-block { display:none; position: absolute; top:58px; width:100%; left: 0; right:0; background:rgba(245,130,45,1)}
+	.top-block .top-content {margin: 6px 0;}
+	.top-content > li > a.country, .top-content > li > a.language { background: url(../images/arrw-dwn-white.png) no-repeat 100% 50%;}
+	.pl-name-part .drop-arrow { background: url(../images/arrw-dwn-white.png) no-repeat right center;}
+	.slidersOpenBtn,.menuOpenBtn { display:block}
+	.inner-site-header .main-header { top: 0;}
+	.inner-site-header { padding-top: 10px; padding-bottom: 10px;}
+	.inner-site-header .serach-box {width: 100%;}
+	.inner-container .main-container .content { margin-top:10px}
+	.performance-list li { margin-left: 4.5%;}
+}
+@media screen and (max-width:767px) {
+	body { font-size: 80%}
+	.container { padding-left: 30px; padding-right: 30px;}
+	.banner-slider .banner-content { width:95%}
+	.top-search { width: 85%; min-height: 95px; margin: 12px auto 0; padding: 15px;}
+	.top-search .search-wrap input[type="text"],.top-search .search-wrap input[type="submit"] { height:36px}
+	.top-search .search-wrap {margin-top: 10px;}
+	.top-search h4 { font-size: 1.2em;}
+	.banner-slider .banner-text { width:95%; text-align:center}
+	.banner-slider .banner-text h2 { font-size: 1.375em; text-align:center}
+	.banner-slider .banner-text h5 { font-size: 1.1em; text-align:center}
+	.fourBox article .img-hold {float: none; margin:0 auto}
+	.fourBox article figure figcaption { overflow: visible; width:100%; text-align:center}
+	.fourBox article figcaption h3 { font-size: 1.425em;}
+	.fourBox article figcaption h4 { font-size: 1.1em;}
+	.welcome-sec { padding: 30px 0;}
+	.hp-sec .main-content { padding-top: 20px;}
+	.full-width .list-box .box figure figcaption h2 { font-size: 1.5875em;}
+	.full-width .list-box .box figure figcaption p { font-size: 0.875em}
+	.full-width .list-box .one-box.box .vd-play { width: 50px; height: 50px; background-size: 19px;}
+	.full-width .list-box .one-box.box .share {width: 44px; height: 44px;}
+	.full-width .list-box .one-box.box .share i {font-size: 18px; line-height: 44px;}
+	.full-width .list-box .box .vd-play.right-top-pos { right: 10px; top: -60px;}
+	.vd-play {background-size: 19px;width: 41px; height: 41px;}
+	.tireRangeBox article { margin-bottom: 30px;}
+	.hp-sec.tirerange-sec .main-content { margin-bottom: 44px;}
+	.tirerange-sec .botm-block { padding: 0; margin-bottom: 30px;}
+	.grey-stripe-box,.white-stripe-box { padding: 30px 0;}
+	.find-distributor .map,.find-distributor .distributors { width:100%}
+	.tirerange-sec .botm-block h2 {font-size: 1.8em;}
+	.stay-update .twoBox .right-box article { padding: 13px 0;}
+	.stay-update .main-content p.title-sub { margin: 16px auto 0; width: 100%;}
+	.stay-update .twoBox { margin-top: 20px;}
+	.tireRangeBox article figure .img-box { display:none}
+	.tireRangeBox article:nth-child(2n+1) .content-box {margin-left: 0;}
+	.tireRangeBox article:nth-child(2n) .content-box { margin-right:0}
+	.tireRangeBox { padding:0 40px}
+	.tireRangeBox article figure .content-box { width: 100%;}
+	.tireRangeBox article figure .content-box .content { padding-left:44px; padding-right:44px}
+	ul.right-floated > li { width: 25px;height: 25px;}
+	ul.right-floated > li.shows-floated .floated-content { right: 25px;}
+	.grey-stripe-box .sceTitle-box .title-part .title, .white-stripe-box .sceTitle-box .title-part .title { margin-top: 0;}
+	.find-distributor .distributors .box-header { padding: 15px 30px;}
+	.find-distributor .distributors .box-header h2 {font-size: 1.425em;}
+	.find-distributor .distributors .box-body {padding: 10px 30px; height: auto;}
+	.find-distributor .distributors .box-body ul li {padding: 8px 0;}
+	.find-distributor .distributors { height:auto}
+	.find-distributor .distributors .box-body ul li .content {padding-top: 4px;}
+	.sec-next { display:none}
+	.stay-update .main-content h2.title { line-height:130%}
+	.inner-container .container .row { margin-left:0; margin-right:0}
+	.one-sidebar .main-container {width: 100%; float:none}
+	.sidebar-first { float: none; margin-right:0}
+	.sidebar-second { float: none; margin-left:0}
+	.performance-list li { margin-left: 10.5%;}
+	.main-container { margin-top:20px}
+	.inner-container .main-container .content .high-performance .sceTitle-box .title-part {  width: 65%;}
+	.sidebar { width:270px; height:100%; position: fixed; overflow:auto; left:-270px; top:58px; bottom:0; z-index:999; background:#fff; -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.2); -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.2); box-shadow: 0 2px 5px rgba(0,0,0,0.2); -webkit-transition: all linear 0.6s; -moz-transition: all linear 0.6s; transition: all linear 0.6s;}
+	.sidebar.sidebar-togl { left:0}
+	.filter-togl { display:block}
+	.sidebar > h2 { font-size: 1.3625em;  padding: 15px 24px; margin-bottom: 0;}
+	.accord-treeMenu > ul > li { padding: 12px 24px;}
+	.accord-menu h3 {padding: 12px 24px 12px 20px;}
+	.accord-menu ul ul li a {padding: 9px 32px; background-position: 16px 15px; background-size: 5px;}
+	.inner-container .main-container h2.title { font-size: 1.675em;	}
+	.body-content {padding: 34px 0;}
+
+}
+@media screen and (max-width:640px) {
+	.top-search .search-wrap input[type="submit"] {background-position: 3px 50%; width: 88px;}
+	.fourBox { background:none}
+	.fourBox article {float: none; width: 100%; padding: 15px;}
+	.fourBox article .img-hold {float: left; margin:0 25px 0 0}
+	.fourBox article figure figcaption { overflow: visible; width:auto; text-align:left; display:table}
+	.sceTitle-box .title-part,.sceTitle-box .title-part .title {float: none;}
+	.sceTitle-box .title-part::after { display: none}
+	.sceTitle-box .info-part {overflow: visible; width: 100%;}
+	.sceTitle-box .info-part p { padding-top: 0px;}
+	.oneThree-box,.one-box { width: 100%;}
+	.stay-update .twoBox .left-box { display: none;}
+	.stay-update .twoBox .right-box { width:100%}
+	.tirerange-sec .botm-block .content { overflow: visible;}
+	.main-footer .ft-top .ft-link,.main-footer .ft-top .ft-link:nth-child(3) {width: 100%; float: none; margin-bottom: 12px}
+	.main-footer .row { margin:0}
+	.main-footer .ft-top .ft-link ul li { display:inline-block; vertical-align: top; margin-right:-4px}
+	.main-footer .ft-top .ft-link ul li a::after { content:'\007c'; color: #b3d0ed; margin:0 5px}
+	.main-footer .ft-top .ft-link ul li:last-child a::after { display:none}
+	.main-footer .ft-top .ft-link h3 { margin-bottom:0px}
+	.main-footer .ft-top .ft-link .social { margin-top:6px}
+	.main-footer .ft-top .ft-link .social li { margin-right:8px}
+	.main-footer .newsletter { margin-top:6px}
+	.copyright .left,.copyright .right { text-align:center; width:100%; float: none}
+	.copyright .left img { margin:0 auto 8px; width:160px}
+	.main-footer .copyright {padding: 14px 0;}
+	.aboutLanding-plist .left-right-list li .img-box { width: auto;}
+	.aboutLanding-plist .left-right-list li .content-part {width: 100%; margin-top:10px	}
+	.aboutLanding-plist .left-right-list li { padding: 20px 0;}
+	.performance-list li { margin-left: 5%;}
+	.inner-container .main-container .content .high-performance .sceTitle-box .title-part { width: 100%;}
+	.productList .left-right-list li:nth-child(odd) .content-part {margin-left: 0;}
+	.productList .left-right-list li:nth-child(even) .content-part {margin-right: 0;}
+	.productList .left-right-list li .content-part { width: 88%; margin-top: -28px;}
+
+}
+@media screen and (max-width:480px) {
+	.top-header .logo a { width: 66px;}
+	.top-header .enterprise { width: 117px;}
+	.top-header .logo { margin-top: 20px;}
+	.top-header .logo::after {height: 19px;}
+	.top-block .top-content { margin: 0;}
+	.top-content > li { width: 50%; margin: 0; border-top: 1px solid rgba(255,255,255,0.4); border-right: 1px solid rgba(255,255,255,0.4); padding:5px}
+	.top-content > li:nth-child(-n+2) { border-top:0}
+	.top-block .profile-name {width: 99px;}
+	.tirerange-sec .botm-block .content { overflow: visible; width:100%; margin-top:12px;}
+	.tirerange-sec .botm-block .icon-box { float:none}
+	.performance-list { background-image:none}
+	.performance-list li { width:33.33%; margin-left: 0; text-align:center}
+}
