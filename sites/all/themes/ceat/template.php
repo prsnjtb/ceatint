@@ -36,15 +36,26 @@ function ceat_preprocess_page(&$variables) {
    $result = db_query('SELECT n.visibility_status FROM {push_notification} n WHERE n.visibility_status = :vsid', array(':vsid' => 0));
 
 
-foreach ($result as $record) {
+	foreach ($result as $record) {
 
- $row[] = $record->visibility_status;
+	 $row[] = $record->visibility_status;
 
-}
+	}
 
- $variables['push'] = count($row);
+	$variables['push'] = count($row);
+	
+	unset($variables['page']['content']['system_main']['default_message']);	//14-06-17
  
   } //end of if
+  
+  
+  if (isset($variables['node'])) {
+  // If the node type is "blog" the template suggestion will be "page--blog.tpl.php".
+  
+	//echo 'page__'. str_replace('_', '--', $vars['node']->type);
+  
+    $variables['theme_hook_suggestions'][] = 'page__'. str_replace('_', '--', $variables['node']->type);
+  }
 } // end of function
 
 
@@ -182,5 +193,7 @@ function ceat_field__taxonomy_term_reference($variables) {
 
   return $output;
 }
+
+
 
 
