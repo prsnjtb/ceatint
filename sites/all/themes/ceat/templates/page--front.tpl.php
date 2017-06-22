@@ -334,9 +334,16 @@
                 	<div id="scroll" class="scroll">
                         <article>
                             <figure>
+
+<?php
+	 $block = module_invoke('views', 'block_view', 'ceat_blog-block');
+
+     ?>
                                 <span class="date-box"><span class="date">Jan 5</span><span class="year">2017</span></span>
                                 <figcaption>
-                                    <p>Lorem ipsum dolor sit amet, libero turpis non cras ligula, id commodo, aenean est</p>
+                                    <p>     <?php print render($block['content']); ?>
+				
+					</p>
                                 </figcaption>
                             </figure>
                         </article>
